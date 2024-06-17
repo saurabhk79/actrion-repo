@@ -6,9 +6,9 @@ jobs:
   send-webhook:
     runs-on: ubuntu-latest
     steps:
-    - name: Send Webhook
-      run: |
-        curl -X POST -H "Content-Type: application/json" \
-        -H "X-GitHub-Event: push" \
-        -d '{"pusher": {"name": "${{ github.actor }}"}, "ref": "${{ github.ref }}"}' \
-        https://your-app.herokuapp.com/webhook
+      - name: Send Webhook
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -H "X-GitHub-Event: push" \
+          -d '{"pusher": {"name": "${{ github.actor }}"}, "ref": "${{ github.ref }}"}' \
+          https://webhook-repo-two.vercel.app/webhook/receiver
