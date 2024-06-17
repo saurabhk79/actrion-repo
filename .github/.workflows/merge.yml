@@ -1,0 +1,17 @@
+name: Merge Event
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  send-webhook:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+    - name: Send Webhook
+      run: |
+        curl -X POST -H "Content-Type: application/json" \
+        -H "X-GitHub-Event: merge" \
+        -d '{"sender": {"login": "${{ github.actor }}"}, "pull_request": {"head": {"ref": "${{ github.head_ref }}"}, "base": {"ref": "${{ github.base_ref }}"}}}' \
+        https://your-app.herokuapp.com/webhook
