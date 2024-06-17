@@ -11,4 +11,4 @@ jobs:
           curl -X POST -H "Content-Type: application/json" \
           -H "X-GitHub-Event: push" \
           -d '{"pusher": {"name": "${{ github.actor }}"}, "ref": "${{ github.ref }}"}' \
-          https://laughing-space-happiness-x7xp9w4456r2prvx-5000.app.github.dev/webhook/receiver
+          https://webhook-repo-two.vercel.app/webhook/receiver
