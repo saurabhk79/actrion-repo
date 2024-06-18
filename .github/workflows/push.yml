@@ -10,5 +10,5 @@ jobs:
         run: |
           curl -X POST -H "Content-Type: application/json" \
           -H "X-GitHub-Event: push" \
-          -d '{"pusher": {"name": "${{ github.actor }}"}, "ref": "${{ github.ref }}"}' \
+          -d '{"after": "${{ github.sha }}", "pusher": {"name": "${{ github.actor }}"}, "ref": "${{ github.ref }}"}' \
           https://webhook-repo-two.vercel.app/webhook/receiver

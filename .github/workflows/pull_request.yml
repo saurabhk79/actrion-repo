@@ -12,5 +12,5 @@ jobs:
         run: |
           curl -X POST -H "Content-Type: application/json" \
           -H "X-GitHub-Event: pull_request" \
-          -d '{"pull_request": {"user": {"login": "${{ github.actor }}"}, "head": {"ref": "${{ github.head_ref }}"}, "base": {"ref": "${{ github.base_ref }}"}}}' \
+          -d '{"pull_request": {"id": ${{ github.event.pull_request.id }}, "user": {"login": "${{ github.actor }}"}, "head": {"ref": "${{ github.head_ref }}"}, "base": {"ref": "${{ github.base_ref }}"}}}' \
           https://webhook-repo-two.vercel.app/webhook/receiver
